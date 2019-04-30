@@ -1,0 +1,73 @@
+<div class="container">
+  {{newDate | date:'HH:mm | dd/MM/yy'}}
+  <div class="details">
+    <span class="item first">
+      Name: <span>{{client?.data.name}}</span>
+    </span>
+    <span class="item">
+      Phone: <span>{{client?.data.phoneNumber}}</span>
+    </span>
+    <span class="item">
+      Time: <span>
+        <form [formGroup]="formTime">
+          <mat-form-field
+            [hideRequiredMarker]="false"
+            [floatLabel]="'never'"
+          >
+            <input matInput 
+              type="text"
+              time
+              required
+              formControlName="time"
+              autocomplete="off"
+              placeholder="10:30">
+          </mat-form-field>
+        </form>
+      </span>
+    </span>
+    <span class="item">
+      Date: <span>
+        <form [formGroup]="formDate">
+          <mat-form-field
+            [hideRequiredMarker]="false"
+            [floatLabel]="'never'"
+          >
+            <input matInput
+              [matDatepicker]="picker"
+              formControlName="date"
+              autocomplete="off"
+              [placeholder]="placeholderOfDate | date:'M/dd/yyyy'"
+              required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </form>
+      </span>
+    </span>
+    <span class="item">
+      Price: <span>
+        <form [formGroup]="formPrice">
+          <mat-form-field
+            [hideRequiredMarker]="false"
+            [floatLabel]="'never'"
+          >
+            <input matInput
+              formControlName="price"
+              autocomplete="off"
+              placeholder="400"
+              required>
+            <span matPrefix>$&nbsp;</span>
+          </mat-form-field>
+        </form>
+      </span>
+    </span>
+  </div>
+  <div class="wrapper-for-buttons">
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-raised-button
+      color="primary"
+      (click)="sendData()"
+      [disabled]="formDate.invalid || formTime.invalid || formPrice.invalid"
+    >Add Client</button>
+  </div>
+</div>

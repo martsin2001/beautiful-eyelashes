@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="wrapper-for-details">
+    <div class="details">
+      <span class="item">
+        Name: <span>{{acceptedClient?.data.name}}</span>
+      </span>
+      <span class="item">
+        Phone: <span>{{acceptedClient?.data.phone}}</span>
+      </span>
+      <span class="item">
+        Date: <span class="date">{{acceptedClient?.data.date | date:'HH:mm | dd/MM/yy'}}</span>
+      </span>
+    </div>
+    <div class="buttons">
+      <button class="to-edit" mat-mini-fab>
+          <mat-icon>edit</mat-icon>
+      </button>
+      <button color="warn"
+        mat-mini-fab
+        (click)="deleteAcceptedClient()"
+      >
+          <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

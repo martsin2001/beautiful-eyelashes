@@ -1,0 +1,157 @@
+.header {
+  width: calc(100% - 60px);
+  height: auto;
+  padding: 10px 30px;
+  background: #f85151;
+  font-family: 'Sofia';
+  font-size: 22px;
+  font-weight: 900;
+  color: white;
+  z-index: 999;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .book-place {
+    font-family: 'Amaranth';
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    &:hover {
+      background: rgba(0,0,0,0.08);
+    }
+  }
+}
+
+.wrapper {
+  width: 100%;
+  height: 100% !important;
+  overflow-y: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  background: rgba(0,0,0,0.04);
+
+  .container {
+    max-width: 800px;
+    width: calc(60% - 64px);
+    min-height: 100%;
+    height: auto;
+    padding: 32px;
+    padding-top: 87px;
+    background: white;
+
+    .our-master {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .wrapper-info {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .wrapper-for-photo {
+        width: 108px;
+        height: 108px;
+        background: #ff00aa;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .info-button {
+        color: rgb(94, 94, 94);
+        cursor: pointer;
+        &:hover {
+          color: rgb(0, 119, 255);
+        }
+      }
+
+      .data-of-master {
+        color: rgb(61, 61, 61);
+        padding-left: 15px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        .name {
+          color: black;
+          font-family: 'Amaranth';
+          font-size: 1.2em;
+        }
+        .icons {
+          font-size: 1em;
+          display: flex;
+          justify-content: flex-start;
+          color: rgb(94, 94, 94);
+          mat-icon {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+          .analytic {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-right: 20px;
+            span {
+              display: block;
+              margin-left: 7px;
+              color: rgb(61, 61, 61);
+            }
+          }
+        }
+      }
+
+      .photo-of-master {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+
+    .title-our-works {
+      font-family: 'Sofia';
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .container {
+    width: 100% !important;
+    .wrapper-for-photo {
+      width: 78px !important;
+      height: 78px !important;
+    }
+    .photo-of-master {
+      width: 70px !important;
+      height: 70px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .book-place {
+    display: none !important;
+  }
+}

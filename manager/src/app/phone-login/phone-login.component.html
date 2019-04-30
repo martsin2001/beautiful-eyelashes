@@ -1,0 +1,44 @@
+<h2>{{codeSent ? 'Enter code' : 'Sign In'}}</h2>
+<div class="container">
+  <div class="container-for-enter-number">
+    <form [formGroup]='phoneNumberControl'
+      *ngIf="!codeSent"
+    >
+      <mat-form-field>
+        <mat-label>Phone Number</mat-label>
+        <input matInput 
+          type="text"
+          formControlName="number"
+          phone-number
+          placeholder="XXX-XXX-XXXX"
+        >
+        <span matPrefix>+38&nbsp;</span>
+      </mat-form-field>
+    </form>
+    <div class="confirmation" #recaptcha id="recaptcha-container"></div>
+    <button 
+      *ngIf="!codeSent"
+      mat-raised-button
+      (click)="sendLoginCode()" 
+      color="primary"
+      [disabled]='phoneNumberControl.invalid'
+    >Get SMS with code</button>
+  </div>
+
+  <div class="container-for-confirm-code" *ngIf="codeSent">
+    <form [formGroup]='confirmationCode'>
+      <mat-form-field>
+        <mat-label>Enter code</mat-label>
+        <input matInput
+          type="text"
+          formControlName="code"
+          placeholder="XXX-XXX"
+          class="code"
+          code
+        >
+      </mat-form-field>
+    </form>
+    <button mat-raised-button [disabled]="confirmationCode.invalid" (click)="verifyLoginCode()" color="primary">Send Code</button>
+    <button mat-button (click)="verifyLoginCode()" color="primary">Send one more time</button>
+  </div>
+</div>

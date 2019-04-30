@@ -1,0 +1,41 @@
+<div class="info-for-client">
+  Manager: <span>{{(manager$ | async)?.number}}</span>
+</div>
+
+<mat-tab-group fxFlex="80" fxFill id="tab-group">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Clients
+      <span *ngIf='quantityClients !== 0'
+        class="quantityClients"
+        matBadgeColor="warn" 
+        matBadgeSize="medium"
+        [matBadge]="quantityClients"
+      ></span>
+    </ng-template>
+    <ng-container *ngFor="let client of (clients$ | async)">
+      <app-review-clients
+        [client]="client"
+        (addClientToSchedule)="addClientToSchedule($event)"
+        (deleteRequest)="deleteRequest($event)"
+      ></app-review-clients>
+    </ng-container>
+  </mat-tab>
+  <mat-tab label="Work schedule">
+  <ng-template mat-tab-label>
+      Work schedule 
+      <span *ngIf='quantityAcceptedClients !== 0'
+        class="quantityClients"
+        matBadgeColor="warn" 
+        matBadgeSize="medium"
+        [matBadge]="quantityAcceptedClients"
+      ></span>
+    </ng-template>
+    <ng-container >
+      <app-schedule
+        [acceptedClients]="acceptedClients$ | async"
+        (deleteAcceptedClient)="deleteAcceptedClient($event)"
+      ></app-schedule>
+    </ng-container>
+  </mat-tab>
+</mat-tab-group>

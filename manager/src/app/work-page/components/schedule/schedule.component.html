@@ -1,0 +1,8 @@
+<div class="container">
+  <ng-container *ngFor="let acceptedClient of acceptedClients">
+    <app-review-accepted-clients
+      [acceptedClient]="acceptedClient"
+      (DeleteAcceptedClient)="onDeleteAcceptedClient($event)"
+    ></app-review-accepted-clients>
+  </ng-container>
+</div>

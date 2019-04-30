@@ -1,0 +1,41 @@
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .confirmation {
+        margin-bottom: 20px;
+    }
+}
+
+h2 {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.container-for-enter-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container-for-confirm-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .code {
+        text-align: center;
+    }
+}

@@ -1,0 +1,62 @@
+.container {
+    width: calc(100% - 40px);
+    height: auto;
+    padding: 0px 20px;
+    margin: 20px 0px;
+    .wrapper-for-details {
+        width: calc(100% - 30px);
+        padding: 15px;
+        background: white;
+        box-shadow: 0px 1px 2px 0px lightgray;
+        background: rgba(0,0,0,0.04);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .details {
+            width: 55%;
+            height: auto;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-direction: column;
+            font-family: 'Anaheim';
+            font-size: 1em;
+            font-weight: 100;
+            .item {
+                color: rgb(51, 51, 51);
+                span{
+                    color: black;
+                    font-weight: 600;
+                }
+                .date {
+                    color: #07f;
+                }
+            }
+        }
+        .buttons {
+            width: 45%;
+            height: auto;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            button {
+                width: 35px;
+                height: 35px;
+                cursor: pointer;
+                mat-icon {
+                    font-size: 21px;
+                }
+                /deep/span {
+                    padding: 0px !important;
+                }
+            }
+            a {
+                user-select: none;
+            }
+            .to-call {
+                user-select: none;
+                background: rgb(0, 199, 0);
+            }
+        }
+    }
+}

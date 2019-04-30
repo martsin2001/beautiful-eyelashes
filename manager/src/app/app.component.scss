@@ -1,0 +1,41 @@
+.header {
+  width: calc(100% - 60px);
+  height: auto;
+  padding: 10px 30px;
+  background: #f85151;
+  font-family: Sofia;
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  span {
+    font-family: 'Anaheim';
+    font-size: .8em;
+    font-weight: 100;
+    padding: 5px 0px;
+  }
+}
+
+.space-between-header {
+  padding-top: 53px;
+}
+
+.info-for-client {
+  width: calc(100% - 60px);
+  font-size: 1em;
+  padding: 10px 30px;
+  background: rgba(0,0,0,0.04);
+  span {
+    color: #07f;
+  }
+}
+
+/deep/.mat-tab-header-pagination {
+  display: none !important;
+}

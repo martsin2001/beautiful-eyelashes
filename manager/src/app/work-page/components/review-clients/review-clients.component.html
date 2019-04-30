@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="wrapper-for-details">
+    <div class="details">
+      <span class="item">
+        Name: <span>{{client?.data.name}}</span>
+      </span>
+      <span class="item">
+        Phone: <span>{{client?.data.phoneNumber}}</span>
+      </span>
+      <span class="item">
+        Date: <span class="date">{{client?.data.date | date:'HH:mm | dd/MM/yy'}}</span>
+      </span>
+    </div>
+    <div class="buttons">
+      <a [href]="'tel:' + client?.data.phoneNumber">
+        <button class="to-call" mat-mini-fab>
+          <mat-icon aria-label="To call">call</mat-icon>
+        </button>
+      </a>
+      <button color="primary" (click)="acceptClient()" class="to-add" mat-mini-fab>
+        <mat-icon aria-label="To call">add</mat-icon>
+      </button>
+      <button color="warn" (click)="deleteCurrentRequest(client)" class="to-add" mat-mini-fab>
+        <mat-icon aria-label="To call">delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.info-for-client {
+    width: calc(100% - 60px);
+    font-size: 1em;
+    padding: 10px 30px;
+    background: rgba(0,0,0,0.04);
+    span {
+        color: #07f;
+    }
+}
+
+.quantityClients {
+    margin-left: 20px;
+    font-size: 0.8em !important;
+}
+
+#tab-group{
+    height: calc(100% - 92px);
+}
+
+/deep/::-webkit-scrollbar { 
+    display: none !important; 
+}
