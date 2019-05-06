@@ -20,8 +20,11 @@ export class ScheduleComponent implements OnInit {
     
   }
 
-  onDeleteAcceptedClient(client: fromCore.ReviewAcceptedClient) {
-    this.deleteAcceptedClient.emit(client);
+  onDeleteAcceptedClient(payload: {
+    reason: string,
+    acceptedClient: fromCore.ReviewAcceptedClient
+  }) {
+    this.deleteAcceptedClient.emit(payload);
   }
 
 }

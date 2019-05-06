@@ -13,7 +13,7 @@
         align-items: center;
         justify-content: space-between;
         .details {
-            width: 55%;
+            width: auto;
             height: auto;
             display: flex;
             align-items: flex-start;
@@ -34,11 +34,17 @@
             }
         }
         .buttons {
-            width: 45%;
+            width: auto;
             height: auto;
             display: flex;
             align-items: flex-end;
             justify-content: space-around;
+            button:nth-child(1) {
+                margin-right: 10px;
+            }
+            button:nth-child(2) {
+                margin-right: 10px;
+            }
             button {
                 width: 35px;
                 height: 35px;

@@ -1,5 +1,9 @@
 <div class="info-for-client">
-  Manager: <span>{{(manager$ | async)?.number}}</span>
+  <span>Manager: <span class="details">{{(manager$ | async)?.number}}</span></span> 
+  <mat-icon
+    *ngIf="(manager$ | async)?.vip"
+    (click)="goToAppController()"
+  >info_outline</mat-icon>
 </div>
 
 <mat-tab-group fxFlex="80" fxFill id="tab-group">

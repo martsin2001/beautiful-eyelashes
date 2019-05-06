@@ -1,6 +1,6 @@
 <div class="header">
   <span>Beautiful eyelashes</span>
-  <span class="book-place">Book a place</span>
+  <span class="book-place">Leave contacts</span>
 </div>
 <div class="wrapper">
   <div class="container">
@@ -15,8 +15,8 @@
           <span class="name">Boguslava Martsin</span>
           <div class="icons">
             <div class="analytic">
-              <mat-icon>thumb_up</mat-icon>
-              <span>15</span>
+              <mat-icon>favorite</mat-icon>
+              <span>25</span>
             </div>
             <div class="analytic">
               <mat-icon>visibility</mat-icon>
@@ -27,7 +27,38 @@
       </div>
       <mat-icon class="info-button">info</mat-icon>
     </div>
-    <mat-divider></mat-divider>
-    <h2 class="title-our-works">Our works</h2>
+    <div class="wrapper-for-line">
+      <mat-divider></mat-divider>
+      <span class="title-our-works">Our works</span>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="block-for-images">
+      <mat-grid-list cols="4" rowHeight="2:2.6">
+        <mat-grid-tile *ngFor="let image of images"
+          [colspan]="image.cols"
+          [rowspan]="image.rows"
+        >
+          <div class="wrapper-fo-img">
+            <div class="img"
+              [style.backgroundImage]="'url(' + image.src + ')'"
+            ></div>
+            <div class="details-panel">
+              <span class="name-of-work">
+                {{image.type}}
+              </span>
+              <div class="panel-for-like">
+                <mat-icon>favorite_border</mat-icon>
+                <span class="quantity-likes">
+                  {{image.likes}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <app-book-place
+      (BookPlace)="onBookPlace($event)"
+    ></app-book-place>
   </div>
 </div>

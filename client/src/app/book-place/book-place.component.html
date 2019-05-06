@@ -1,0 +1,16 @@
+<div class="wrapper-for-details">
+  <div class="wrapper-for-line">
+    <span>Leave your contacts</span>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="bookPlace()">
+    <mat-form-field [floatLabel]="'never'">
+      <input matInput formControlName="name" type="text" required placeholder="Your name">
+    </mat-form-field>
+    <mat-form-field [floatLabel]="'never'">
+      <input matInput formControlName="phoneNumber" phone-number type="text" required placeholder="Your phone">
+      <span matPrefix>+38&nbsp;</span>
+    </mat-form-field>
+
+    <button mat-raised-button [disabled]="form.invalid" type="submit">Order a call</button>
+  </form>
+</div>

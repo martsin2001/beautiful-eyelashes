@@ -4,5 +4,17 @@
       [acceptedClient]="acceptedClient"
       (DeleteAcceptedClient)="onDeleteAcceptedClient($event)"
     ></app-review-accepted-clients>
+<<<<<<< Updated upstream
+=======
+    <div 
+      class="divider"
+      *ngIf="sortedAcceptedClient.indexOf(acceptedClient) === positionLastTimeLeft 
+      && sortedAcceptedClient.indexOf(acceptedClient) !== sortedAcceptedClient.length -1"
+    >
+      <mat-divider></mat-divider>
+      <p>In expecting</p>
+      <mat-divider></mat-divider>
+    </div>
+>>>>>>> Stashed changes
   </ng-container>
 </div>

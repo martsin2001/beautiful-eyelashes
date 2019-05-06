@@ -25,7 +25,24 @@ export class ReviewAcceptedClientsComponent implements OnInit {
   }
 
   deleteAcceptedClient() {
+<<<<<<< Updated upstream
     this.DeleteAcceptedClient.emit(this.acceptedClient);
+=======
+    const editDialog = new MatDialogConfig();
+    editDialog.width = '95%';
+    editDialog.maxWidth = '500px';
+    editDialog.height = 'auto';
+    editDialog.autoFocus = true;
+    const dialogEditRef = this.dialog.open(ActionConfirmationComponent, editDialog);
+    dialogEditRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.DeleteAcceptedClient.emit({
+          reason: result.reason,
+          acceptedClient: this.acceptedClient
+        });
+      }
+    });
+>>>>>>> Stashed changes
   }
 
 }

@@ -1,0 +1,33 @@
+<div class="go-back-panel">
+  <div class="btn-go-back">
+    <mat-icon>keyboard_arrow_left</mat-icon> Go Back
+  </div>
+</div>
+<mat-tab-group fxFlex="80" fxFill id="tab-group">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Analytics
+    </ng-template>
+    <div class="search">
+      <mat-form-field [floatLabel]="'never'">
+        <input matInput type="text" placeholder="Search">
+        <button mat-button matSuffix mat-icon-button aria-label="Search">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <ng-container *ngFor="let details of (analytics$ | async)">
+      <app-analytics [details]="details"></app-analytics>
+    </ng-container>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Cancellations
+    </ng-template>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Total
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

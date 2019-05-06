@@ -17,6 +17,7 @@ const routes: Routes = [
    {path: '', redirectTo: 'login', pathMatch: 'full'},
    {path: 'login', loadChildren: './phone-login/phone-login.module#PhoneLoginModule', pathMatch: 'prefix'},
    {path: 'work-page', loadChildren: './work-page/work-page.module#WorkPageModule', pathMatch: 'prefix'},
+   {path: 'app-controller', loadChildren: './app-controller/app-controller.module#AppControllerModule', pathMatch: 'prefix'},
    {path: '**', redirectTo: 'login'}
 ];
 

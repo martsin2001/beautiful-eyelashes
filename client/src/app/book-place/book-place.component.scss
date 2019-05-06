@@ -1,0 +1,48 @@
+.wrapper-for-details {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px 0px;
+    .wrapper-for-line {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        mat-divider {
+          width: 100%;
+          border-color: rgba(0,0,0,.5);
+        }
+        span {
+            text-align: center;
+            min-width: 190px;
+            font-family: 'Archivo';
+            font-size: 1.2em;
+            font-weight: bolder;
+            padding-bottom: 3px;
+        }
+    }
+    
+    mat-form-field {
+        max-width: 290px;
+        width: 290px;
+    }
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    button {
+        margin-top: 10px;
+        background: rgb(0, 199, 0);
+        color: white;
+        &:disabled {
+            background: rgba(0, 199, 0, 0.719);
+        }
+    }
+}

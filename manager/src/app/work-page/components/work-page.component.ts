@@ -4,6 +4,7 @@ import { WorkPageService } from '../core/work-page.service';
 import { Component, OnInit } from '@angular/core';
 
 import * as fromCore from '../core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-work-page',
@@ -15,6 +16,7 @@ export class WorkPageComponent implements OnInit {
   manager$: Observable<{
     name: string;
     number: string;
+    vip: boolean;
   }>;
   clients$: Observable<fromCore.ReviewClient[]>;
   acceptedClients$: Observable<fromCore.ReviewAcceptedClient[]>;
@@ -22,16 +24,11 @@ export class WorkPageComponent implements OnInit {
   quantityAcceptedClients: number = 0;
 
   constructor(
-    private workPageService: WorkPageService
+    private workPageService: WorkPageService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    // this.workPageService.addClient({
-    //   name: 'Boguslava',
-    //   phoneNumber: '+380639843015',
-    //   date: Date.now()
-    // });
-    
     const key = localStorage.getItem('key');
     this.clients$ = this.workPageService.getClients()
       .pipe(map(clients => {
@@ -46,6 +43,10 @@ export class WorkPageComponent implements OnInit {
     this.manager$ = this.workPageService.getCurrentManager(key);
   }
 
+  goToAppController() {
+    this.router.navigateByUrl('/app-controller');
+  }
+
   addClientToSchedule(client: fromCore.AcceptedClient) {
     this.workPageService.addClient(client);
   }
@@ -54,8 +55,11 @@ export class WorkPageComponent implements OnInit {
     this.workPageService.deleteRequest(client.key);
   }
 
-  deleteAcceptedClient(client: fromCore.ReviewAcceptedClient) {
-    this.workPageService.deleteAcceptedClient(client.key);
+  deleteAcceptedClient(payload: {
+    reason: string,
+    acceptedClient: fromCore.ReviewAcceptedClient
+  }) {
+    this.workPageService.deleteAcceptedClient(payload);
   }
 
 }

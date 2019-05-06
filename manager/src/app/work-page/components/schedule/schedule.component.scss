@@ -1,4 +1,29 @@
 .container {
     width: 100%;
     height: auto;
+<<<<<<< Updated upstream
+=======
+    .divider {
+        width: calc(100% - 40px);
+        height: auto;
+        padding: 0px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        p {
+            min-width: 100px;
+            text-align: center;
+            word-break: unset;
+            margin: 0px;
+            padding: 0px 5px;
+            font-family: 'Anaheim';
+            font-size: 1em;
+            font-weight: 100;
+        }
+        mat-divider {
+            width: 50%;
+        }
+    }
+>>>>>>> Stashed changes
 }

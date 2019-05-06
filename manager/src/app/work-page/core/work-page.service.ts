@@ -12,13 +12,14 @@ export class WorkPageService {
     private app: AppService
   ) { }
 
-  getCurrentManager(key: string): Observable<{name: string; number: string}> {
+  getCurrentManager(key: string): Observable<{name: string; number: string; vip: boolean;}> {
     return this.db.object(`managers/${key}`)
       .snapshotChanges()
       .pipe(map((manager: any) => {
           return {
             name: manager.payload.toJSON().name,
-            number: manager.payload.toJSON().phoneNumber
+            number: manager.payload.toJSON().phoneNumber,
+            vip: manager.payload.toJSON().promoCode === 'vip'
           };
       }))
   }
@@ -72,12 +73,23 @@ export class WorkPageService {
       });
   }
 
-  deleteAcceptedClient(key: string) {
-    this.db.object(`accepted-clients/${key}`)
-      .remove().then(() => {
-        this.app.openSnackBar('Deleted successfully!');
-      }).catch(err => {
-        this.app.openSnackBar('Server error!');
-      });
+  deleteAcceptedClient(payload: {
+    reason: string,
+    acceptedClient: fromCore.ReviewAcceptedClient
+  }) {
+    this.db.list('reason-cancel').push({
+      reason: payload.reason,
+      client: payload.acceptedClient.data,
+      date: Date.now()
+    }).then(() => {
+      this.db.object(`accepted-clients/${payload.acceptedClient.key}`)
+        .remove().then(() => {
+          this.app.openSnackBar('Deleted successfully!');
+        }).catch(err => {
+          this.app.openSnackBar('Server error!');
+        });
+    }).catch(err => {
+      this.app.openSnackBar('Server error!');
+    })
   }
 }   

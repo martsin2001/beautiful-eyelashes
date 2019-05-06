@@ -3,8 +3,17 @@
     font-size: 1em;
     padding: 10px 30px;
     background: rgba(0,0,0,0.04);
-    span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .details {
         color: #07f;
+    }
+    mat-icon {
+        cursor: pointer;
+        &:hover {
+            color: #07f;
+        }
     }
 }
 

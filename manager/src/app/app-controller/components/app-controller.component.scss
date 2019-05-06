@@ -1,0 +1,41 @@
+.go-back-panel {
+    width: calc(100% - 10px);
+    height: auto;
+    padding: 5px 5px;
+    background: rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .btn-go-back {
+        font-family: 'Anaheim';
+        font-size: 1em;
+        font-weight: 1000;
+        padding: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-radius: 5px;
+        mat-icon {
+            color: #07f;
+        }
+    }
+}
+
+.search {
+    width: calc(100% - 40px);
+    height: auto;
+    padding: 0px 20px;
+    mat-form-field {
+        width: 100%;
+        
+    }
+}
+
+#tab-group{
+    height: calc(100% - 92px);
+}
+
+/deep/::-webkit-scrollbar { 
+    display: none !important; 
+}
