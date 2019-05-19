@@ -1,3 +1,4 @@
+import { LayoutService } from './layout.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -32,13 +33,21 @@ export class LayoutComponent implements OnInit {
 
   @Output() bookPlace: EventEmitter<{name: string, phoneNumber: string}> = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    private ls: LayoutService
+  ) { }
 
   ngOnInit() {
+    this.ls.getAnalyticsImage();
   }
 
   onBookPlace(data: {name: string, phoneNumber: string}) {
     this.bookPlace.emit(data);
+  }
+
+  onLike(image) {
+    
+    console.log(image);
   }
 
 }

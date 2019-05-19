@@ -20,6 +20,8 @@ import { environment } from './../environments/environment';
 import { BookPlaceComponent } from './book-place/book-place.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditPhoneNumber } from './book-place/phone-number.directive';
+import { LayoutService } from './layout/layout.service';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 
 @NgModule({
@@ -40,11 +42,14 @@ import { EditPhoneNumber } from './book-place/phone-number.directive';
       MatButtonModule,
       ReactiveFormsModule,
       MatSnackBarModule,
+      AngularFireStorageModule,
       MatDividerModule,
       AngularFireModule.initializeApp(environment.firebaseConfig),
       AngularFireDatabaseModule
    ],
-   providers: [],
+   providers: [
+      LayoutService
+   ],
    bootstrap: [
       AppComponent
    ]

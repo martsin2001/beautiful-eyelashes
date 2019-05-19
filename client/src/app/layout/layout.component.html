@@ -47,7 +47,7 @@
                 {{image.type}}
               </span>
               <div class="panel-for-like">
-                <mat-icon>favorite_border</mat-icon>
+                <mat-icon (click)="onLike(image)" >favorite_border</mat-icon>
                 <span class="quantity-likes">
                   {{image.likes}}
                 </span>
